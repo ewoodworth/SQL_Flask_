@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>Student Info</title>
+</head>
+<body>
+<h1>{{ first }} {{ last }}</h1>
+
+<p>GitHub Account: {{ github }}</p><br>
+
+<table>
+    <th>Project Title</th>
+    <th>Grade</th>
+    {% for row in grades_all %}
+    <tr>
+        <td> <a href="/project?title={{ row[0] }}">{{ row[0] }}</a></td>
+        <td> {{ row[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<p>Add a new student:</p>
+<form action="/student_add" method='POST'>
+    <label>First Name: </label><input type="text" name="first"><br>
+    <label>Last Name: </label><input type="text" name="last"><br>
+    <label>Github: </label><input type="text" name="github"><br>
+    <input type="submit">
+</form>
+
+</body>
+</html>

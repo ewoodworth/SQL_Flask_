@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Page</title>
+</head>
+
+<body>
+
+<p>
+Title: {{ title }}<br>
+Description: {{ description }}<br>
+Max Grade: {{ max_score }}
+</p>
+
+<table>
+    <th>Student Github</th>
+    <th>Grade</th>
+    {% for grade in all_grades %}
+    <tr>
+        <td> <a href="/student?github={{ grade[0] }}">{{ grade[0] }}</a></td>
+        <td> {{ grade[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<p>Add a new project:</p>
+<form action="/project_add" method='POST'>
+    <label>Project Title: </label><input type="text" name="title"><br>
+    <label>Description: </label><textarea name="description">Enter Project Description Here</textarea><br>
+    <label>Max Grade: </label><input type="number" name="max_grade"><br>
+    <input type="submit">
+</form>
+
+</body>
+</html>

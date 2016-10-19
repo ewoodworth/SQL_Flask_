@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Page</title>
+</head>
+
+<body>
+
+<form action="/grade_add" method='POST'>
+    <label>Select a Project: </label>
+        <select type="dropdown" name="project"><br>
+            {% for project in all_projects %}
+            <option value='{{ project[1] }}'> {{ project[1] }}</option>
+            {% endfor %}
+        </select><br>
+    <label>Select a Student: </label>
+        <select type="dropdown" name="student"><br>
+            {% for student in all_students %}
+            <option value='{{ student[2] }}'>{{ student[0] }} {{student[1]}}</option>
+            {% endfor %}
+        </select><br>
+    <label>Enter a grade: </label><input type="number" name="grade"><br>
+    <input type="submit">
+</form>
+
+
+</body>
+</html>
